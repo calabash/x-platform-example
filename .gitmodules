@@ -1,0 +1,6 @@
+[submodule "src/Android"]
+	path = src/Android
+	url = git@github.com:wordpress-mobile/WordPress-Android.git
+[submodule "src/iOS"]
+	path = src/iOS
+	url = git@github.com:wordpress-mobile/WordPress-iOS.git

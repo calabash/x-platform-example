@@ -6,20 +6,9 @@ class LoginPage < Calabash::ABase
     "android.widget.TextView text:'Sign in'"
   end
 
-  def await(wait_opts={})
-    login_page = super(wait_opts)
-    touch(user_field)
-    login_page
-  end
-
   def self_hosted_site
-    begin
-      wait_for_elements_exist ["android.widget.TextView text:'Add self-hosted site'"]
-      touch("android.widget.TextView text:'Add self-hosted site'")
-    rescue
-      performAction('go_back') #Workaround for tablets not releasing keyboard
-      touch("android.widget.TextView text:'Add self-hosted site'")
-    end
+    hide_soft_keyboard
+    tap_when_element_exists(add_self_hosted_site_button)
   end
 
   def login(user,pass,site)
@@ -27,26 +16,11 @@ class LoginPage < Calabash::ABase
     enter_text(pass_field, pass)
     enter_text(site_field, site)
 
+    hide_soft_keyboard
 
-    do_sign_in
+    touch(sign_in)
 
-
-    begin
-      wait_for_login_done
-    rescue => e
-      performAction('go_back') #Workaround for tablets not releasing keyboard
-      do_sign_in
-      wait_for_login_done
-    end
-
-  end
-
-  def do_sign_in
-    begin
-      touch(sign_in)
-    rescue RuntimeError => e
-      touch("android.widget.Button index:2")
-    end
+    wait_for_login_done
   end
 
   def sign_in
@@ -68,6 +42,11 @@ class LoginPage < Calabash::ABase
   def field(field_id)
     "android.widget.TextView id:'#{field_id}'"
   end
+
+  def add_self_hosted_site_button
+    "android.widget.TextView text:'Add self-hosted site'"
+  end
+
 
   def wait_for_login_done
     result = nil

@@ -23,11 +23,9 @@ class LoginPage < Calabash::IBase
   end
 
   def enter_text(query_string, text)
-    # do it
     touch(query_string)
     wait_for_keyboard
     keyboard_enter_text text
-
   end
 
   def sign_in

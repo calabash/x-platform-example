@@ -7,9 +7,7 @@ class SitePage < Calabash::ABase
   end
 
   def to_posts
-    sleep(10)
-    touch("* marked:'Posts'")
-    sleep(10)
+    touch(query("* marked:'Posts'").last)
   end
 
 

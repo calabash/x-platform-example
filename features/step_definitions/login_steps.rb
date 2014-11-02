@@ -1,6 +1,9 @@
 Given(/^I am about to login$/) do
+
   @current_page = page(LoginPage).await(timeout: 30)
   @current_page.self_hosted_site
+
+
 end
 
 

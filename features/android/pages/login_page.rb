@@ -23,6 +23,15 @@ class LoginPage < Calabash::ABase
     wait_for_login_done
   end
 
+  def assert_can_create_account
+    check_element_exists "* id:'nux_create_account_button'"
+  end
+
+  def more_information
+    tap_mark "info_button"
+    page(InfoPage).await
+  end
+
   def sign_in
     "android.widget.TextView text:'Sign in'"
   end
@@ -51,7 +60,7 @@ class LoginPage < Calabash::ABase
   def wait_for_login_done
     result = nil
     wait_for(timeout: 120) do
-      if element_exists("android.widget.TextView {text BEGINSWITH 'The username or'}")
+      if element_exists("* {text BEGINSWITH 'The username or'}")
         result = :invalid
       elsif element_exists("* marked:'Posts'")
         result = :valid

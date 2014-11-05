@@ -22,6 +22,16 @@ class LoginPage < Calabash::IBase
     wait_for_login_done
   end
 
+  def more_information
+    tap_mark 'Help'
+    page(InfoPage).await()
+  end
+
+
+  def assert_can_create_account
+    check_element_exists "* marked:'Create Account'"
+  end
+
   def enter_text(query_string, text)
     touch(query_string)
     wait_for_keyboard

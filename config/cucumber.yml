@@ -1,7 +1,7 @@
 # config/cucumber.yml
 ##YAML Template
 ---
-android: PLATFORM=android -r features/support -r features/android -r features/step_definitions
+android: PLATFORM=android -r features/support -r features/android -r features/step_definitions -r features/android/pages
 
 
 ios: PLATFORM=ios APP_BUNDLE_PATH=prebuilt/WordPress-cal.app  -r features/support -r features/ios/support -r features/ios/helpers -r features/step_definitions -r features/ios/pages

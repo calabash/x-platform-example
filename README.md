@@ -15,12 +15,21 @@ Install gems in the `Gemfile`:
 
 # iOS
 
-To run the iOS tests, make sure Xcode 5.1 is installed with command line tools.
+To run the iOS tests, make sure Xcode 6.1 is installed with command line tools.
 
 Run
 
-
     bundle exec cucumber -p ios
+
+or
+
+    ./run.rb ios
+
+Calabash console
+
+    ./console.rb ios
+    
+Run `start_test_server_in_background`.
 
 # Android
 
@@ -31,4 +40,14 @@ To run the Android tests, ensure a recent Android SDK is installed, and that
 Run
 
     bundle exec calabash-android run prebuilt/Android-debug.apk -p android
+
+or
+
+    ./run.rb android
+
+Calabash console
+
+    ./console.rb android
+
+Run `start_test_server_in_background`.
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-target = ARGV[0]
+target = ARGV.shift
 
 unless system("bundle version")
   puts "Can't find bundler. Check your ruby environment."
@@ -14,9 +14,9 @@ EOF
 end
 
 if target == 'android'
-  exec("bundle exec calabash-android run prebuilt/Android-debug.apk -p android")
+  exec("export APP=prebuilt/Android-debug.apk && bundle exec calabash-android run $APP -p android #{ARGV.join(' ')}")
 elsif target == 'ios'
-  exec("bundle exec cucumber -p ios")
+  exec("export APP=prebuilt/WordPress-cal.app && export APP_BUNDLE_PATH=$APP && bundle exec cucumber -p ios #{ARGV.join(' ')}")
 else
-    puts "Invalid target #{target}"
+  puts "Invalid target #{target}"
 end

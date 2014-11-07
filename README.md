@@ -62,26 +62,31 @@ Run `start_test_server_in_background`.
 
 # Links to more information
 
-More information about the Page object model
+## General information
+
+http://xamarin.com/evolve/2013#session-xcjpj20d6s
+
+http://developer.xamarin.com/testcloud/
+
+http://calabashapi.xamarin.com/ios/
+
+http://calabashapi.xamarin.com/android/
+
+https://evolve.xamarin.com/ - Evolve - Xamarin Developer Conference
+
+http://xamarin.com/test-cloud
+
+
+## More information about the Page object model
 
 http://developer.xamarin.com/guides/testcloud/calabash/xplat-best-practices/
+
 https://github.com/calabash/calabash-ios/blob/develop/calabash-cucumber/doc/x-platform-testing.md
 
 
-Github projects (also getting started for new projects):
+## Github projects (also getting started for new projects):
 
 https://github.com/calabash/calabash-ios
 
 https://github.com/calabash/calabash-android
 
-General information
-
-http://developer.xamarin.com/testcloud/
-
-http://calabashapi.xamarin.com/android/
-
-http://calabashapi.xamarin.com/ios/
-
-https://evolve.xamarin.com/ - Evolve - Xamarin Developer Conference
-
-http://xamarin.com/test-cloud

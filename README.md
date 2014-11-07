@@ -71,12 +71,17 @@ https://github.com/calabash/calabash-ios/blob/develop/calabash-cucumber/doc/x-pl
 Github projects (also getting started for new projects):
 
 https://github.com/calabash/calabash-ios
+
 https://github.com/calabash/calabash-android
 
 General information
 
 http://developer.xamarin.com/testcloud/
+
 http://calabashapi.xamarin.com/android/
+
 http://calabashapi.xamarin.com/ios/
+
 https://evolve.xamarin.com/ - Evolve - Xamarin Developer Conference
+
 http://xamarin.com/test-cloud

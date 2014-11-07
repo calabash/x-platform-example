@@ -10,6 +10,8 @@ If you've never used ruby before and just want to get started quickly you can ru
 
 This will install Calabash and gems in a `~/.calabash` directory.
 
+On Windows we recommend: http://rubyinstaller.org/ and latest Ruby. Then follow the instructions below.
+
 # Or do-it-yourself
 
 Or if you're already a Ruby user, make sure you have bundler installed:
@@ -22,9 +24,9 @@ Install gems in the `Gemfile`:
 
 # iOS
 
-To run the iOS tests, make sure Xcode 6.1 is installed with command line tools.
+You need OS X with Xcode (6.1 recommended) installed with command-line tools.
 
-Run
+To run the iOS tests run
 
     ./run.rb ios
 

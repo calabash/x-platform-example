@@ -2,12 +2,19 @@
 
 Make sure you have Ruby 1.9 or above installed (Ruby 2.0+ recommended).
 
-Install bundler unless you already have it installed:
+On OS X Mavericks and above Ruby is already installed.
+
+If you've never used ruby before and just want to get started quickly you can run this script on OS X:
+
+    ./install-calabash-local-osx.rb
+
+This will install Calabash and gems in a `~/.calabash` directory.
+
+# Or do-it-yourself
+
+Or if you're already a Ruby user, make sure you have bundler installed:
 
     gem install bundler
-
-(or sudo gem install bundler)
-
 
 Install gems in the `Gemfile`:
 
@@ -19,11 +26,11 @@ To run the iOS tests, make sure Xcode 6.1 is installed with command line tools.
 
 Run
 
-    bundle exec cucumber -p ios
+    ./run.rb ios
 
 or
 
-    ./run.rb ios
+    bundle exec cucumber -p ios
 
 Calabash console
 
@@ -39,15 +46,14 @@ To run the Android tests, ensure a recent Android SDK is installed, and that
 
 Run
 
-    bundle exec calabash-android run prebuilt/Android-debug.apk -p android
+    ./run.rb android
 
 or
 
-    ./run.rb android
-
+    bundle exec calabash-android run prebuilt/Android-debug.apk -p android
+    
 Calabash console
 
     ./console.rb android
 
 Run `start_test_server_in_background`.
-

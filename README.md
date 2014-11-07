@@ -59,3 +59,18 @@ Calabash console
     ./console.rb android
 
 Run `start_test_server_in_background`.
+
+# Links to more information
+
+More information about the Page object model
+
+http://developer.xamarin.com/guides/testcloud/calabash/xplat-best-practices/
+https://github.com/calabash/calabash-ios/blob/develop/calabash-cucumber/doc/x-platform-testing.md
+
+General information
+
+http://developer.xamarin.com/testcloud/
+http://calabashapi.xamarin.com/android/
+http://calabashapi.xamarin.com/ios/
+https://evolve.xamarin.com/ - Evolve - Xamarin Developer Conference
+http://xamarin.com/test-cloud

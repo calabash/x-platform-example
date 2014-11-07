@@ -8,7 +8,9 @@ class LoginPage < Calabash::IBase
 
 
   def self_hosted_site
-    touch("* marked:'Add Self-Hosted Site'")
+
+    tap_mark('Add Self-Hosted Site')
+
     wait_for_none_animating
   end
 

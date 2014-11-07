@@ -7,8 +7,11 @@ class LoginPage < Calabash::ABase
   end
 
   def self_hosted_site
+
     hide_soft_keyboard
-    tap_when_element_exists(add_self_hosted_site_button)
+
+    tap_mark(add_self_hosted_site_button)
+
   end
 
   def login(user,pass,site)
@@ -53,7 +56,7 @@ class LoginPage < Calabash::ABase
   end
 
   def add_self_hosted_site_button
-    "android.widget.TextView text:'Add self-hosted site'"
+    'Add self-hosted site'
   end
 
 

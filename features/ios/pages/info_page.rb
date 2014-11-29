@@ -11,6 +11,8 @@ class InfoPage < Calabash::IBase
     queries.each do |txt|
       check_element_exists "* marked:'#{txt}'"
     end
+
+    screenshot_embed
   end
 
 end

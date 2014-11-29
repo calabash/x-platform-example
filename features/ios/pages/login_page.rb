@@ -25,8 +25,11 @@ class LoginPage < Calabash::IBase
   end
 
   def more_information
+
     tap_mark 'Help'
+
     page(InfoPage).await()
+
   end
 
 

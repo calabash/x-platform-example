@@ -24,7 +24,7 @@ Before do |scenario|
     @calabash_launcher.reset_app_jail
   end
   unless @calabash_launcher.calabash_no_launch?
-    @calabash_launcher.relaunch #(uia_strategy: :shared_element)
+    @calabash_launcher.relaunch(uia_strategy: :shared_element)
     @calabash_launcher.calabash_notify(self)
   end
 end

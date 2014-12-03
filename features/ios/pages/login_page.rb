@@ -15,10 +15,19 @@ class LoginPage < Calabash::IBase
   end
 
   def login(user,pass,site)
-    enter_text(user_field, user)
-    enter_text(pass_field, pass)
-    enter_text(site_field, site)
+    # Note this example uses "enter_text"
+    # You should use keyboard_enter_text by default
+    # enter_text or set the option use_keyboard: true
+    # wait: false means we know the field is ready to be tap'ed
+    # e.g. no animations, so don't wait for it
+    enter_text(user_field, user, use_keyboard: false)
+    enter_text(pass_field, pass, use_keyboard: false, wait: false)
+    enter_text(site_field, site, use_keyboard: false, wait: false)
 
+    # If we used use_keyboard: true, this wouldn't be necessary
+    # but use_keyboard: false is faster so we use it here
+    touch("UITextField") # side-effect to have Add Site button enable
+                      # after fast keyboard entry (= UIAutomation setValue)
     touch(add_site)
 
     wait_for_login_done
@@ -37,11 +46,12 @@ class LoginPage < Calabash::IBase
     check_element_exists "* marked:'Create Account'"
   end
 
-  def enter_text(query_string, text)
-    touch(query_string)
-    wait_for_keyboard
-    keyboard_enter_text text
-  end
+# Use 0.11.5 built-in enter-text
+#  def enter_text(query_string, text)
+#    touch(query_string)
+#    wait_for_keyboard
+#    keyboard_enter_text text
+#  end
 
   def sign_in
     trait()

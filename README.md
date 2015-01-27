@@ -336,6 +336,8 @@ https://github.com/calabash/calabash-ios/blob/develop/calabash-cucumber/doc/x-pl
 
 ## Github projects (also getting started for new projects):
 
+http://www.github.com/xamarin/test-cloud-samples
+
 https://github.com/calabash/calabash-ios
 
 https://github.com/calabash/calabash-android

@@ -17,8 +17,6 @@ EOF
   exit(false)
 end
 
-# remove images
-# exec("rm *.png 2>/dev/null")
 
 if target == 'android'
   exec("export APP=prebuilt/omgshop.apk && bundle exec calabash-android run $APP -p android #{ARGV.join(' ')}")

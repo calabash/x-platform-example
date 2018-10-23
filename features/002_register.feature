@@ -17,15 +17,15 @@ Feature: Register
     #     | John       | Doe       | xjohndoe@gmail.com | Pass1234 | Fail    |
     #     | John       | Doe       | NewEmail           | Pass1234 | Success |
 
-    Scenario: Fail login
+    Scenario: Register Failed - email format
       When I enter "John" "Doe" "xjohndoe" and "Pass1234" for registration
       Then I should see the "Fail"
 
-    Scenario: Fail login
+    Scenario: Register Failed - already member
       When I enter "John" "Doe" "xjohndoe@gmail.com" and "Pass1234" for registration
       Then I should see the "Fail"
 
-    Scenario: Success login
+    Scenario: Register Success
       When I enter "John" "Doe" "NewEmail" and "Pass1234" for registration
       Then I should see the "Success"
 

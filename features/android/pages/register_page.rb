@@ -28,6 +28,8 @@ class RegisterPage < Calabash::ABase
   end
 
   def check_result(result)
+  	wait_for_none_animating
+  	
 		case result
 		when "Fail"
 			check_element_exists "* id:'etFirstName'"

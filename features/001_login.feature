@@ -8,7 +8,7 @@ Feature: Login
     Given I am in the login page
 
 	  Scenario: Login to system success
-	    When I fill in "Email" as "gunesmes@gmail.com"
-	    And I fill in "Password" as "Mgs787878"
+	    When I fill in "Email" as "testjohndoe@gmail.com"
+	    And I fill in "Password" as "Pass1234"
 	    And I touch the log-in button 
 	    Then I should see "Products" text

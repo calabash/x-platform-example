@@ -12,15 +12,15 @@ class RegisterPage < Calabash::IBase
 			puts email
 		end
 
-		enter_text "* text:'First name'", name
+		enter_text "* text:'First name'", "#{name}"
 
 		scroll "scrollView", :down
-		enter_text "* text:'Last name'", lastname
+		enter_text "* text:'Last name'", "#{lastname}"
 
-		enter_text "* text:'Email'", email
+		enter_text "* text:'Email'", "#{email}"
 
 		scroll "scrollView", :down
-		enter_text "* text:'Password'", pass
+		enter_text "* text:'Password'", "#{pass}"
 
 		scroll "scrollView", :down
 		touch "UIButtonLabel text:'Register'"

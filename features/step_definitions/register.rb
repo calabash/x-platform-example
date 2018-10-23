@@ -3,7 +3,7 @@ Given(/^I am in the register page$/) do
 	@current_page.go_to_register_page
 end
 
-When(/^I enter (.*) (.*) (.*) and (.*) for registration$/) do |name, lastname, email, pass|
+When("I enter {string} {string} {string} and {string} for registration") do |name, lastname, email, pass|
 	@current_page = page(RegisterPage).await(timeout: 300)
 	@current_page.fill_registration_form(name, lastname, email, pass)
 end

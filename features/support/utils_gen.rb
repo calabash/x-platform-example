@@ -127,11 +127,11 @@ def reinstall_ios_app
 		fi
 	}
 
-  system("ideviceinstaller -U#{ENV['BUNDLE_ID']")
+  system("ideviceinstaller -U '#{ENV["BUNDLE_ID"]}'")
 
-  puts "- Beam App removed, re-installing the app"
+  puts "- App removed, re-installing the app"
 
-  system("ideviceinstaller -i #{ENV['APP_BUNDLE_PATH']}")
+  system("ideviceinstaller -i '#{ENV["APP_BUNDLE_PATH"]}'")
 end
 
 def ios_app_installed?

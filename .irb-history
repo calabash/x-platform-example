@@ -1,0 +1,29 @@
+start_test_server_in_background
+exit
+start_test_server_in_background
+exit
+start_test_server_in_background
+start_test_server_in_background
+exit
+start_test_server_in_background
+exit
+start_
+start_test_server_in_background
+start_test_server_in_background
+enter_text "* marked:'Email'", "gunesmes@gmail.com"
+enter_text "* marked:'Password'", "Mgs787878"
+touch("* text:'LOG IN')
+"
+)
+touch("* text:'LOG IN'")
+query "*"
+start_test_server_in_background
+query "*"
+start_test_server_in_background
+query "*"
+query "*"
+start_test_server_in_background
+query "*"
+start_
+start_test_server_in_background
+exit

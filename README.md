@@ -304,6 +304,36 @@ Android:
 
     calabash-android run path_to.apk -p android features/login.feature
     
+
+## Running on Cloud
+### Appcenter (Xamarin, formerly acquired By Microsoft)
+Appcenter account needed. Xamarin supports the x-platform framework so we can directly run the whole tests by supplying the profile as `android` or `ios`. Create an accoun on [Appcenter](https://appcenter.ms). Go to `Test > Test runs` and create a test run. It will gives a link to run on bash. See the run command:
+
+install test-cloud gem:
+```bash
+npm install -g appcenter-cli
+gem install xamarin-test-cloud
+```
+
+Run the appcenter command:
+```bash
+appcenter test run calabash --app "gunesmes/testhive-android" --devices 74456dc6 --app-path ./prebuilt/app-staging-debug_express.apk --test-series "master" --locale "en_US" --project-dir . --config-path <path/to/project>/config/cucumber.yml --profile android
+```
+
+
+### Amazon Device Farm
+Amazon device farm account needed. Amazon Device farm supports only basic `Calabash-android` or `Calabash-ios` project. Therefore we need to convert to x-platform project to simple Calabash project. There is `converter.sh` in the path for conversion. It will create `android.zip` and `ios.zip` files in the `calabash-generic` folder in the same path.
+
+To run converter:
+```bash
+cd <path/to/project>
+bash converter.sh
+```
+
+To submit the project to the Device Farm, go to the [link](https://us-west-2.console.aws.amazon.com/devicefarm) and select the application and zip file.
+
+See *notes.txt* for some useful commands and links.
+
 ## Conclusion
 
 We've described how to improve the architecture of your test code base: using page objects you get better abstraction, reuse and cross-platform comes more easily. We've created an open source sample project that you can use for inspiration: [X-Platform-Example](https://github.com/calabash/x-platform-example).

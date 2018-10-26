@@ -18,14 +18,14 @@ Feature: Register
     #     | John       | Doe       | NewEmail           | Pass1234 | Success |
 
     Scenario: Register Failed - email format
-      When I enter 'John' 'Doe' 'xjohndoe' and 'Pass1234' for registration
+      When I enter 'John' 'Doe' 'xjohndoe' and 'PasPasssss' for registration
       Then I should see the 'Fail'
 
     Scenario: Register Failed - already member
-      When I enter 'John' 'Doe' 'xjohndoe@gmail.com' and 'Pass1234' for registration
+      When I enter 'John' 'Doe' 'xxjohndoe@gmail.com' and 'PasPasssss' for registration
       Then I should see the 'Fail'
 
     Scenario: Register Success
-      When I enter 'John' 'Doe' 'NewEmail' and 'Pass1234' for registration
+      When I enter 'John' 'Doe' 'NewEmail' and 'PasPasssss' for registration
       Then I should see the 'Success'
 

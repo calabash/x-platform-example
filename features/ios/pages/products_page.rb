@@ -7,8 +7,8 @@ class ProductsPage < Calabash::IBase
   end
 
   def go_to_profile
-  	touch  "* index:38"
-  	wait_until_text_visible "My profile"
+    touch  "* index:38"
+    wait_until_text_visible "My profile"
   end
 
 end

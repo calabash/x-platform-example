@@ -1,4 +1,5 @@
 ./test_servers/*
+./Gemfile.lock
 .idea/
 screenshot_*
 ./support/media/android/*
@@ -7,3 +8,7 @@ screenshot_*
 .irb-history
 reports/*.json
 ./calabash-generic/*
+# emacs and vim
+*~
+(.*/)?\#[^/]*\#$
+*.swp

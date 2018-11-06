@@ -7,9 +7,9 @@ class ProfilePage < Calabash::ABase
   end
 
   def logout
-  	wait_until_element_ready "* text:'LOG OUT'"
-  	touch "* text:'LOG OUT'"
-  	wait_until_text_visible "Log in"
+    wait_until_element_ready "* text:'LOG OUT'"
+    touch "* text:'LOG OUT'"
+    wait_until_text_visible "Log in"
   end
 
 end

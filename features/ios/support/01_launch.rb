@@ -25,20 +25,14 @@ Before do |scenario|
   reinstall_ios_app if !ios_app_installed?
   
   launcher = Calabash::Cucumber::Launcher.launcher
-  options = {
-    :timeout => 50000
-  }
 
-  # if scenario_tags.include?('@reinstall') && ENV["LOCALRUN"] == "true"
-  if scenario_tags.include?('@reinstall')
+  if scenario_tags.include?('@reinstall') && ENV["LOCALRUN"] == "true"
     ENV['RESET_BETWEEN_SCENARIOS'] = '1'
     reinstall_ios_app
   end
 
 
   launcher.relaunch(options)
-
-  # allow_notification
 
 end
 
@@ -55,8 +49,5 @@ After do |scenario|
     calabash_exit
   end
 
-  if scenario.failed?
-    embed_screenshot scenario
-  end
 end
 

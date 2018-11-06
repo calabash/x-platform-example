@@ -5,16 +5,16 @@ GEM
     awesome_print (1.8.0)
     backports (3.11.4)
     builder (3.2.3)
-    calabash-android (0.9.0)
+    calabash-android (0.9.8)
       awesome_print (~> 1.2)
       cucumber
       escape (~> 0.0.4)
       httpclient (>= 2.7.1, < 3.0)
-      json (~> 1.8)
+      json
       luffa
-      rubyzip (~> 1.1)
+      rubyzip (~> 1.2)
       slowhandcuke (~> 0.0.3)
-    calabash-cucumber (0.20.5)
+    calabash-cucumber (0.21.7)
       awesome_print
       bundler (~> 1.3)
       clipboard (~> 1.0)
@@ -23,7 +23,7 @@ GEM
       geocoder (>= 1.1.8, < 2.0)
       httpclient (>= 2.7.1, < 3.0)
       json
-      run_loop (>= 2.4.1, < 3.0)
+      run_loop (>= 4.0, < 5.0)
       slowhandcuke (~> 0.0.3)
     clipboard (1.1.2)
     command_runner_ng (0.1.4)
@@ -62,13 +62,13 @@ GEM
     multi_test (0.1.2)
     retriable (2.0.2)
     rubyzip (1.2.2)
-    run_loop (2.7.1)
+    run_loop (4.0.0)
       CFPropertyList (~> 2.2)
       awesome_print (~> 1.2)
       command_runner_ng (>= 0.0.2)
       httpclient (>= 2.7.1, < 3.0)
       i18n (>= 0.7.0, < 1.0)
-      json (~> 1.8)
+      json
       thor (>= 0.18.1, < 1.0)
     slowhandcuke (0.0.3)
       cucumber
@@ -78,8 +78,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  calabash-android (= 0.9.0)
-  calabash-cucumber (= 0.20.5)
+  calabash-android (>= 0.9, < 1.0)
+  calabash-cucumber (>= 0.21, < 1.0)
 
 BUNDLED WITH
    1.16.6

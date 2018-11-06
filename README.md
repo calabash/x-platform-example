@@ -306,8 +306,8 @@ Android:
     
 
 ## Running on Cloud
-### Appcenter (Xamarin, formerly acquired By Microsoft)
-Appcenter account needed. Xamarin supports the x-platform framework so we can directly run the whole tests by supplying the profile as `android` or `ios`. Create an accoun on [Appcenter](https://appcenter.ms). Go to `Test > Test runs` and create a test run. It will gives a link to run on bash. See the run command:
+### App Center
+App Center account needed. Xamarin supports the x-platform framework so we can directly run the whole tests by supplying the profile as `android` or `ios`. Create an accoun on [App Center](https://appcenter.ms). Go to `Test > Test runs` and create a test run. It will gives a link to run on bash. See the run command:
 
 install test-cloud gem:
 ```bash
@@ -316,6 +316,7 @@ gem install xamarin-test-cloud
 ```
 
 Run the appcenter command:
+Calabash tests on App Center require json 1.8.x and cucumber 2.x.
 ```bash
 appcenter test run calabash --app "gunesmes/testhive-android" --devices 74456dc6 --app-path ./prebuilt/app-staging-debug_express.apk --test-series "master" --locale "en_US" --project-dir . --config-path <path/to/project>/config/cucumber.yml --profile android
 ```

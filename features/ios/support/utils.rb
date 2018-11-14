@@ -27,7 +27,7 @@ module Calabash
     end
 
     def enter_pin(pin)
-      wait_until_element_ready "UIButtonLabel text:'9'"
+      wait_until_element_visible "UIButtonLabel text:'9'"
 
       number = ""
 
@@ -57,7 +57,7 @@ module Calabash
     def go_back
       # predefined step "I go back" doesn't work for ios 12
       touch "view:'_UIButtonBarButton' first"
-      sleep(0.5)
+      wait_for_none_animating
     end
     
   end

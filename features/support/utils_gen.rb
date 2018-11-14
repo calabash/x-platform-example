@@ -4,15 +4,13 @@ require 'uri'
 
 def set_current_user(user = nil)
   if user.nil?
-    begin
-      case ENV["platform"]
-      when "android"
-        $current_user = Members.new.get("android")
-      when "ios", "ios-simulator"
-        $current_user = Members.new.get("ios")
-      else
-        puts "- current_user is not set. Platform should be one of:\n * android\n * ios\n * ios-simulator"
-      end
+    case ENV["platform"]
+    when "android"
+      $current_user = Members.new.get("android")
+    when "ios", "ios-simulator"
+      $current_user = Members.new.get("ios")
+    else
+      puts "- current_user is not set. Platform should be one of:\n * android\n * ios\n * ios-simulator"
     end
   else
     $current_user = Members.new.get(user)
@@ -22,12 +20,10 @@ end
 def embed_image(name, take_screenshot = true)
   screenshot_path = File.dirname(__FILE__) + '/media/' + name + '.png'
 
-  if take_screenshot
-    screenshot(screenshot_path)
-  end
+  screenshot(screenshot_path) if take_screenshot
+
   embed(screenshot_path, "image/png", "SCREENSHOT")
 end
-
 
 def embed_screenshot scenario
   name = scenario.name.gsub(" ", "_").downcase
@@ -36,52 +32,67 @@ def embed_screenshot scenario
 end
 
 def wait_until_loader_disappear
-  while query("* id:'wait_spinner'").size != 0
-    sleep 0.5
+  begin
+    Timeout::timeout(30) do
+      while query("* id:'wait_spinner'").size != 0
+        sleep 0.5
+      end
+    end
+  rescue Timeout::Error
+    raise "Loader doesn't disappear"
   end
 end
 
 def wait_until_text_disappear(text)
-  while check_if_text_exists(text)
-    sleep 0.5
-  end
-end
-
-def wait_until_text_visible(text)
-  wait_until_element_ready "* {text CONTAINS[C] '#{text}'}"
-end
-
-def wait_until_element_ready(qr)
-  10.times do
-    if query(qr).size > 0
-      break
-    else
-      sleep 1
-      puts "- Element is not ready yet ...."
+  Timeout::timeout(30) do
+    while check_if_text_exists(text)
+      sleep 0.5
     end
   end
 end
 
-def wait_until_one_element_ready(*args)
-  # this will wait until one of the element visible in the given query list
-  # wait_until_one_element_ready("* text:'Stores'", "* text:'Places'")
+def wait_until_text_visible(text)
+  wait_until_element_visible "* {text CONTAINS[C] '#{text}'}"
+end
+
+def wait_until_element_visible(qr)
+  begin     
+    Timeout::timeout(30) do
+      while !element_exists(qr)
+        sleep 1
+      end
+    end  
+  rescue Timeout::Error
+    raise 'Element is not visible.'
+  end
+end
+
+def wait_until_one_element_visible(*args)
+  # this waits until one of the element visible in the given query list
+  # wait_until_one_element_visible("* text:'Stores'", "* text:'Places'")
 
   element = :not_exist
 
-  10.times do
+  30.times do
     args.each do |qr|
-      if query(qr).size > 0
+      if element_exists(qr)
+        # set the element exist and leave the each loop 
         element = :exist
         break
       end
     end
 
     if element == :exist
+      # leave the times loop if exist
       break
     else
       sleep 1
-      puts "- Element is not ready yet ...."
     end
+  end
+
+  if element == :not_exist
+    # raise if none of the element visible
+    raise '- None of the elements is visible'
   end
 end
 
@@ -139,28 +150,15 @@ def ios_app_installed?
 end
 
 def check_if_element_exists query
-  query(query).size != 0 ? true : false
+  element_exists(query)
 end
 
 def check_if_text_exists text
-  query("* {text CONTAINS[c] '#{text}'}").size != 0 ? true : false
+  element_exists("* {text CONTAINS[c] '#{text}'}")
 end
 
 def touch_if_element_exists query
-  if check_if_element_exists(query)
-    touch query
-  end
-end
-
-def check_api_last_transation
-  # gets the last transaction from
-  10.times do
-    break if ($last_transaction["referenceNumber"] != get_last_transactions["referenceNumber"])
-    puts "- API does not return new transactions, waiting 1 second . . . "
-    sleep 2
-  end
-
-  $last_transaction = get_last_transactions
+  touch(query) if check_if_element_exists(query)
 end
 
 def generate_email(length = 6)
@@ -180,9 +178,6 @@ def generate_phone_number(length = 7)
   puts mobile
   return mobile
 end
-
-
-
 
 def android?
   ENV["platform"] == 'android'

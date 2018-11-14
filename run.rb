@@ -21,10 +21,9 @@ end
 if target == 'android'
   exec("export APP=prebuilt/omgshop.apk && bundle exec calabash-android run $APP -p android #{ARGV.join(' ')}")
 elsif target == 'ios'
-  exec("export BUNDLE_ID=com.omisego.omg-shop && export DEVICE_TARGET=47967909d0b90df7d3444d2bbb8b44233475eba5 && export DEVICE_ENDPOINT=http://10.0.1.69:37265 && export APP_BUNDLE_PATH=prebuilt/OMGShop-cal.ipa && bundle exec cucumber -p ios #{ARGV.join(' ')}")
+  exec("export BUNDLE_ID=com.omisego.omg-shop && export DEVICE_ENDPOINT=http://10.0.1.69:37265 && export APP_BUNDLE_PATH=prebuilt/OMGShop-cal.ipa && bundle exec cucumber -p ios #{ARGV.join(' ')}")
 elsif target == 'ios-simulator'
-  exec("unset APP_BUNDLE_PATH && export BUNDLE_ID=com.omisego.omg-shop && export DEVICE_TARGET='iPhone 8 (12.0)' && export DEVICE_ENDPOINT=http://localhost:37265  && export APP_BUNDLE_PATH=prebuilt/OMGShop-cal.app && DEBUG=0 bundle exec cucumber -p ios #{ARGV.join(' ')}")
+  exec("unset APP_BUNDLE_PATH && export BUNDLE_ID=com.omisego.omg-shop && export DEVICE_ENDPOINT=http://localhost:37265  && export APP_BUNDLE_PATH=prebuilt/OMGShop-cal.app && DEBUG=0 bundle exec cucumber -p ios #{ARGV.join(' ')}")
 else
-  puts "- Invalid target: #{target} \n - Available targets are: \n  * android\n  * ios\n  *
-   ios-simulator"
+  puts "- Invalid target: #{target} \n - Available targets are: \n  * android\n  * ios\n  * ios-simulator"
 end

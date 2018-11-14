@@ -28,7 +28,7 @@ module Calabash
     end
 
     def enable_bluetooth
-      wait_until_element_ready "AppCompatButton id:'NoResourceEntry-0'"
+      wait_until_element_visible "AppCompatButton id:'NoResourceEntry-0'"
       touch "AppCompatButton id:'NoResourceEntry-0'"
     end
 

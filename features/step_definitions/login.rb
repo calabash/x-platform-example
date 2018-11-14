@@ -2,10 +2,7 @@
 Given(/^I prepare the state of the app as logout user$/) do
   set_current_user
 
-  case app_state
-  when :logout
-    # home page opens as logout by default
-  when :login
+  if app_state == :login
     steps %{
       When I go to my profile
       When I log out

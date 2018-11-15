@@ -1,0 +1,14 @@
+./test_servers/*
+./Gemfile.lock
+.idea/
+screenshot_*
+./support/media/android/*
+./support/media/ios/*
+.DS_Store
+.irb-history
+reports/*.json
+./calabash-generic/*
+# emacs and vim
+*~
+(.*/)?\#[^/]*\#$
+*.swp

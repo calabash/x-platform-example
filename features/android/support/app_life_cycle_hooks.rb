@@ -1,26 +1,23 @@
+require 'calabash-android/management/adb'
 require 'calabash-android/operations'
 
 
-INSTALLATION_STATE = {
-    :installed => false
-}
-
 Before do |scenario|
   scenario_tags = scenario.source_tag_names
-  if !INSTALLATION_STATE[:installed]
-      uninstall_apps
-      install_app(ENV['TEST_APP_PATH'])
-      install_app(ENV['APP_PATH'])
-      INSTALLATION_STATE[:installed] = true
-  end
 
-  if scenario_tags.include?('@reinstall')
-    clear_app_data
+  # for Amazon Device Farm no need to reinstall
+  # it gives a fresh device every time for each .feature file
+  # if you have more scenario in a .feature, you may need this
+  if scenario_tags.include?('@reinstall') && ENV["LOCALRUN"] != "1"
+    reinstall_apps
   end
 
   start_test_server_in_background
 end
 
+
 After do |scenario|
+  embed_screenshot(scenario) if scenario.failed?
+
   shutdown_test_server
 end

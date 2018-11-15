@@ -12,7 +12,7 @@ class LoginPage < Calabash::IBase
 
   def touch_login_button
     touch_button_text "Log in"
-    wait_until_text_disappear ""
+    wait_until_text_disappear "Log in"
   end
 
   def go_to_register_page

@@ -71,29 +71,15 @@ def wait_until_one_element_visible(*args)
   # this waits until one of the element visible in the given query list
   # wait_until_one_element_visible("* text:'Stores'", "* text:'Places'")
 
-  element = :not_exist
-
   30.times do
     args.each do |qr|
-      if element_exists(qr)
-        # set the element exist and leave the each loop 
-        element = :exist
-        break
-      end
+      return true if element_exists(qr)
     end
 
-    if element == :exist
-      # leave the times loop if exist
-      break
-    else
-      sleep 1
-    end
+    sleep 1
   end
 
-  if element == :not_exist
-    # raise if none of the element visible
-    raise '- None of the elements is visible'
-  end
+  raise '- None of the elements is visible'
 end
 
 

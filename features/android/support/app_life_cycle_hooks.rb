@@ -8,7 +8,7 @@ Before do |scenario|
   # for Amazon Device Farm no need to reinstall
   # it gives a fresh device every time for each .feature file
   # if you have more scenario in a .feature, you may need this
-  if scenario_tags.include?('@reinstall') and ENV["LOCALRUN"] != "true"
+  if scenario_tags.include?('@reinstall') && ENV["LOCALRUN"] != "1"
     reinstall_apps
   end
 

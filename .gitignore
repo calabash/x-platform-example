@@ -1,7 +1,7 @@
 ./test_servers/*
 ./Gemfile.lock
 .idea/
-screenshot_*
+*.png
 ./support/media/android/*
 ./support/media/ios/*
 .DS_Store

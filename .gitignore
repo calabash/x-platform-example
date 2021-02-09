@@ -12,3 +12,6 @@ reports/*.json
 *~
 (.*/)?\#[^/]*\#$
 *.swp
+
+## Gemfile lock
+*.lock
